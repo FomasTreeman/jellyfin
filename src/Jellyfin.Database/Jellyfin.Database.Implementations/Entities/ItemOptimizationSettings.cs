@@ -54,7 +54,6 @@ public class ItemOptimizationSettings
     /// Gets or sets the custom video codec.
     /// Only used when OptimizationPreset is Custom.
     /// </summary>
-    [MaxLength(64)]
     [StringLength(64)]
     public string? CustomVideoCodec { get; set; }
 
@@ -62,7 +61,6 @@ public class ItemOptimizationSettings
     /// Gets or sets the custom audio codec.
     /// Only used when OptimizationPreset is Custom.
     /// </summary>
-    [MaxLength(64)]
     [StringLength(64)]
     public string? CustomAudioCodec { get; set; }
 
