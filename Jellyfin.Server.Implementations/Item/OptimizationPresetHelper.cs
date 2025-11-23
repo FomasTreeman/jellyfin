@@ -3,7 +3,7 @@ using Jellyfin.Data.Enums;
 namespace Jellyfin.Server.Implementations.Item;
 
 /// <summary>
-/// Provides quality presets for mobile optimization.
+/// Provides quality presets for download optimization.
 /// </summary>
 public static class OptimizationPresetHelper
 {
@@ -16,10 +16,11 @@ public static class OptimizationPresetHelper
     {
         return preset switch
         {
-            OptimizationPreset.Mobile => 2_000_000, // 2 Mbps for mobile
-            OptimizationPreset.Tablet => 4_000_000, // 4 Mbps for tablet
-            OptimizationPreset.None => int.MaxValue,
-            OptimizationPreset.Custom => int.MaxValue,
+            OptimizationPreset.Original => int.MaxValue,
+            OptimizationPreset.High => 10_000_000, // 10 Mbps for high quality
+            OptimizationPreset.Medium => 5_000_000, // 5 Mbps for medium quality
+            OptimizationPreset.Low => 2_500_000, // 2.5 Mbps for low quality
+            OptimizationPreset.Mobile => 1_500_000, // 1.5 Mbps for mobile
             _ => int.MaxValue
         };
     }
@@ -33,10 +34,11 @@ public static class OptimizationPresetHelper
     {
         return preset switch
         {
+            OptimizationPreset.Original => string.Empty,
+            OptimizationPreset.High => "h264",
+            OptimizationPreset.Medium => "h264",
+            OptimizationPreset.Low => "h264",
             OptimizationPreset.Mobile => "h264",
-            OptimizationPreset.Tablet => "h264",
-            OptimizationPreset.None => string.Empty,
-            OptimizationPreset.Custom => string.Empty,
             _ => string.Empty
         };
     }
@@ -50,10 +52,11 @@ public static class OptimizationPresetHelper
     {
         return preset switch
         {
+            OptimizationPreset.Original => string.Empty,
+            OptimizationPreset.High => "aac",
+            OptimizationPreset.Medium => "aac",
+            OptimizationPreset.Low => "aac",
             OptimizationPreset.Mobile => "aac",
-            OptimizationPreset.Tablet => "aac",
-            OptimizationPreset.None => string.Empty,
-            OptimizationPreset.Custom => string.Empty,
             _ => string.Empty
         };
     }
@@ -67,10 +70,11 @@ public static class OptimizationPresetHelper
     {
         return preset switch
         {
-            OptimizationPreset.Mobile => 1280, // 720p width for mobile
-            OptimizationPreset.Tablet => 1920, // 1080p width for tablet
-            OptimizationPreset.None => null,
-            OptimizationPreset.Custom => null,
+            OptimizationPreset.Original => null,
+            OptimizationPreset.High => 1920, // 1080p for high quality
+            OptimizationPreset.Medium => 1280, // 720p for medium quality
+            OptimizationPreset.Low => 854, // 480p for low quality
+            OptimizationPreset.Mobile => 640, // 360p for mobile
             _ => null
         };
     }
@@ -84,10 +88,11 @@ public static class OptimizationPresetHelper
     {
         return preset switch
         {
-            OptimizationPreset.Mobile => 720, // 720p for mobile
-            OptimizationPreset.Tablet => 1080, // 1080p for tablet
-            OptimizationPreset.None => null,
-            OptimizationPreset.Custom => null,
+            OptimizationPreset.Original => null,
+            OptimizationPreset.High => 1080, // 1080p for high quality
+            OptimizationPreset.Medium => 720, // 720p for medium quality
+            OptimizationPreset.Low => 480, // 480p for low quality
+            OptimizationPreset.Mobile => 360, // 360p for mobile
             _ => null
         };
     }

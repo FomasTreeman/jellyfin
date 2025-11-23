@@ -48,12 +48,7 @@ public class ItemOptimizationManager
             return new ItemOptimizationSettingsDto
             {
                 ItemId = settings.ItemId,
-                OptimizationPreset = (OptimizationPreset)settings.OptimizationPreset,
-                CustomMaxBitrate = settings.CustomMaxBitrate,
-                CustomVideoCodec = settings.CustomVideoCodec,
-                CustomAudioCodec = settings.CustomAudioCodec,
-                CustomMaxWidth = settings.CustomMaxWidth,
-                CustomMaxHeight = settings.CustomMaxHeight
+                OptimizationPreset = (OptimizationPreset)settings.OptimizationPreset
             };
         }
     }
@@ -79,11 +74,6 @@ public class ItemOptimizationManager
             }
 
             settings.OptimizationPreset = (int)dto.OptimizationPreset;
-            settings.CustomMaxBitrate = dto.CustomMaxBitrate;
-            settings.CustomVideoCodec = dto.CustomVideoCodec;
-            settings.CustomAudioCodec = dto.CustomAudioCodec;
-            settings.CustomMaxWidth = dto.CustomMaxWidth;
-            settings.CustomMaxHeight = dto.CustomMaxHeight;
 
             await dbContext.SaveChangesAsync().ConfigureAwait(false);
         }
@@ -121,7 +111,7 @@ public class ItemOptimizationManager
     {
         // First check the item itself
         var settings = await GetOptimizationSettingsAsync(itemId).ConfigureAwait(false);
-        if (settings != null && settings.OptimizationPreset != OptimizationPreset.None)
+        if (settings != null && settings.OptimizationPreset != OptimizationPreset.Original)
         {
             return settings;
         }
@@ -130,7 +120,7 @@ public class ItemOptimizationManager
         foreach (var parentId in parentIds)
         {
             settings = await GetOptimizationSettingsAsync(parentId).ConfigureAwait(false);
-            if (settings != null && settings.OptimizationPreset != OptimizationPreset.None)
+            if (settings != null && settings.OptimizationPreset != OptimizationPreset.Original)
             {
                 return settings;
             }

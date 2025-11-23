@@ -16,7 +16,7 @@ public class ItemOptimizationSettings
     public ItemOptimizationSettings(Guid itemId)
     {
         ItemId = itemId;
-        OptimizationPreset = 0; // None
+        OptimizationPreset = 0; // Original
     }
 
     /// <summary>
@@ -37,42 +37,10 @@ public class ItemOptimizationSettings
     public Guid ItemId { get; set; }
 
     /// <summary>
-    /// Gets or sets the optimization preset (0=None, 1=Mobile, 2=Tablet, 3=Custom).
+    /// Gets or sets the optimization preset (0=Original, 1=High, 2=Medium, 3=Low, 4=Mobile).
     /// </summary>
     /// <remarks>
     /// Required.
     /// </remarks>
     public int OptimizationPreset { get; set; }
-
-    /// <summary>
-    /// Gets or sets the custom maximum bitrate in bits per second.
-    /// Only used when OptimizationPreset is Custom.
-    /// </summary>
-    public int? CustomMaxBitrate { get; set; }
-
-    /// <summary>
-    /// Gets or sets the custom video codec.
-    /// Only used when OptimizationPreset is Custom.
-    /// </summary>
-    [StringLength(64)]
-    public string? CustomVideoCodec { get; set; }
-
-    /// <summary>
-    /// Gets or sets the custom audio codec.
-    /// Only used when OptimizationPreset is Custom.
-    /// </summary>
-    [StringLength(64)]
-    public string? CustomAudioCodec { get; set; }
-
-    /// <summary>
-    /// Gets or sets the custom maximum width.
-    /// Only used when OptimizationPreset is Custom.
-    /// </summary>
-    public int? CustomMaxWidth { get; set; }
-
-    /// <summary>
-    /// Gets or sets the custom maximum height.
-    /// Only used when OptimizationPreset is Custom.
-    /// </summary>
-    public int? CustomMaxHeight { get; set; }
 }

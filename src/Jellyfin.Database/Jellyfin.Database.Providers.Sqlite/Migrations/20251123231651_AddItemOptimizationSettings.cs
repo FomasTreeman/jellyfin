@@ -18,12 +18,7 @@ namespace Jellyfin.Server.Implementations.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ItemId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    OptimizationPreset = table.Column<int>(type: "INTEGER", nullable: false),
-                    CustomMaxBitrate = table.Column<int>(type: "INTEGER", nullable: true),
-                    CustomVideoCodec = table.Column<string>(type: "TEXT", maxLength: 64, nullable: true),
-                    CustomAudioCodec = table.Column<string>(type: "TEXT", maxLength: 64, nullable: true),
-                    CustomMaxWidth = table.Column<int>(type: "INTEGER", nullable: true),
-                    CustomMaxHeight = table.Column<int>(type: "INTEGER", nullable: true)
+                    OptimizationPreset = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

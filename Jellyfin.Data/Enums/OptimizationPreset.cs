@@ -1,27 +1,32 @@
 namespace Jellyfin.Data.Enums;
 
 /// <summary>
-/// Enum representing mobile/tablet optimization presets for downloads.
+/// Enum representing optimization presets for downloads.
 /// </summary>
 public enum OptimizationPreset
 {
     /// <summary>
-    /// No optimization - download original file.
+    /// Original quality - download original file without optimization.
     /// </summary>
-    None = 0,
+    Original = 0,
 
     /// <summary>
-    /// Mobile quality preset - optimized for mobile devices (lower resolution and bitrate).
+    /// High quality preset - high resolution and bitrate.
     /// </summary>
-    Mobile = 1,
+    High = 1,
 
     /// <summary>
-    /// Tablet quality preset - optimized for tablet devices (medium resolution and bitrate).
+    /// Medium quality preset - medium resolution and bitrate.
     /// </summary>
-    Tablet = 2,
+    Medium = 2,
 
     /// <summary>
-    /// Custom quality preset - user-defined settings.
+    /// Low quality preset - lower resolution and bitrate for smaller file sizes.
     /// </summary>
-    Custom = 3
+    Low = 3,
+
+    /// <summary>
+    /// Mobile quality preset - optimized for mobile devices.
+    /// </summary>
+    Mobile = 4
 }
