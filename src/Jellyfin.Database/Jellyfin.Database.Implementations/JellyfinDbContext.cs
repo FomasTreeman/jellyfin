@@ -99,6 +99,11 @@ public class JellyfinDbContext(DbContextOptions<JellyfinDbContext> options, ILog
     public DbSet<UserData> UserData => Set<UserData>();
 
     /// <summary>
+    /// Gets the <see cref="DbSet{TEntity}"/> containing the item optimization settings.
+    /// </summary>
+    public DbSet<ItemOptimizationSettings> ItemOptimizationSettings => Set<ItemOptimizationSettings>();
+
+    /// <summary>
     /// Gets the <see cref="DbSet{TEntity}"/> containing the user data.
     /// </summary>
     public DbSet<AncestorId> AncestorIds => Set<AncestorId>();
