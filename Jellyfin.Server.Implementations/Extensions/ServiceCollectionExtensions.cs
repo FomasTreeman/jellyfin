@@ -144,6 +144,9 @@ public static class ServiceCollectionExtensions
             lockingBehavior.Initialise(opt);
         });
 
+        // Register ItemOptimizationManager
+        serviceCollection.AddScoped<Jellyfin.Server.Implementations.Item.ItemOptimizationManager>();
+
         return serviceCollection;
     }
 }
